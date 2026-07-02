@@ -75,7 +75,7 @@ export default function LoadingScreen() {
                 initial={{ y: 60, opacity: 0 }} animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8, ease: [0.2, 0.7, 0.2, 1], delay: 0.3 }}
                 className="font-display text-4xl md:text-6xl text-gold-gradient tracking-tight"
-              >Shindesh</motion.div>
+              >Shindeshahi</motion.div>
             </div>
             <div className="overflow-hidden mt-2">
               <motion.div

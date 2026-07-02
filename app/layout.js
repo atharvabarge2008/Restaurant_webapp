@@ -22,8 +22,8 @@ export const metadata = {
     default: 'Shindesh Chinese Resto — Satara\'s Favourite Indo-Chinese Since 2015',
     template: '%s · Shindesh Chinese Resto'
   },
-  description: 'Shindesh Chinese Resto in Guruwar Peth, Satara. Home of the legendary Chicken Dinosaur Rice, Chicken Lollipop, Manchow Soup and Shindesh Special Noodles. 4.5\u2605 on Google · 855+ reviews · Order on Zomato & Swiggy.',
-  keywords: ['Shindesh', 'chinese restaurant satara', 'indo-chinese satara', 'chicken lollipop satara', 'best chinese food satara', 'guruwar peth restaurant', 'shindesh chinese resto', 'manchow soup satara', 'chicken dinosaur rice', 'शिंदेश'],
+  description: 'Shindesh Chinese Resto in Guruwar Peth, Satara. Home of the legendary Chicken Dinosaur Rice, Chicken Lollipop, Manchow Soup and Shindeshahi Special Noodles. 4.5\u2605 on Google · 855+ reviews · Order on Zomato & Swiggy.',
+  keywords: ['Shindeshahi', 'chinese restaurant satara', 'indo-chinese satara', 'chicken lollipop satara', 'best chinese food satara', 'guruwar peth restaurant', 'shindeshahi chinese restro', 'manchow soup satara', 'chicken dinosaur rice', 'शिंदेशाही'],
   authors: [{ name: 'Shindesh Chinese Resto' }],
   creator: 'Shindesh Chinese Resto',
   publisher: 'Shindesh Chinese Resto',
@@ -31,14 +31,14 @@ export const metadata = {
   formatDetection: { email: false, address: false, telephone: false },
   category: 'restaurant',
   openGraph: {
-    type: 'website', locale: 'en_IN', url: BASE, siteName: 'Shindesh Chinese Resto',
-    title: 'Shindesh Chinese Resto — Taste That Wins Hearts',
+    type: 'website', locale: 'en_IN', url: BASE, siteName: 'Shindeshahi Chinese Restro',
+    title: 'Shindeshahi Chinese Restro — Taste That Wins Hearts',
     description: 'Satara\'s most-loved Indo-Chinese kitchen. Legendary Chicken Dinosaur Rice, Manchurian, Momos & more.',
-    images: [{ url: 'https://images.unsplash.com/photo-1603496987351-f84a3ba5ec85?auto=format&fit=crop&w=1200&q=85', width: 1200, height: 630, alt: 'Shindesh Chinese Resto' }]
+    images: [{ url: 'https://images.unsplash.com/photo-1603496987351-f84a3ba5ec85?auto=format&fit=crop&w=1200&q=85', width: 1200, height: 630, alt: 'Shindeshahi Chinese Restro' }]
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Shindesh Chinese Resto — Taste That Wins Hearts',
+    title: 'Shindeshahi Chinese Restro — Taste That Wins Hearts',
     description: 'Satara\'s most-loved Indo-Chinese kitchen. Order on Zomato & Swiggy.',
     images: ['https://images.unsplash.com/photo-1603496987351-f84a3ba5ec85?auto=format&fit=crop&w=1200&q=85']
   },

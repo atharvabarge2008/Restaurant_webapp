@@ -15,7 +15,7 @@ export default function WhyChooseUs() {
       </div>
 
       <div className="relative container mx-auto px-6">
-        <SectionHeading eyebrow="Why Shindesh" chinese="ब्रांड फर्क" title="What makes us Satara's favourite" />
+        <SectionHeading eyebrow="Why Shindeshahi" chinese="ब्रांड फर्क" title="What makes us Satara's favourite" />
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
           {WHY_US.map((item, i) => {

@@ -15,7 +15,7 @@ export default function ReviewsSection() {
 
       <div className="relative">
         <div className="container mx-auto px-6">
-          <SectionHeading eyebrow="Guest Voices" chinese="प्रेमाने लिहिले" title="Praised by Satara, adored by locals" subtitle="Real Google reviews from real Shindesh fans." />
+          <SectionHeading eyebrow="Guest Voices" chinese="प्रेमाने लिहिले" title="Praised by Satara, adored by locals" subtitle="Real Google reviews from real Shindeshahi fans." />
         </div>
 
         {/* Marquee row 1 */}

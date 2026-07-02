@@ -5,7 +5,6 @@ import WhyChooseUs from '@/components/site/WhyChooseUs'
 import SignatureDishes from '@/components/site/SignatureDishes'
 import ReviewsSection from '@/components/site/ReviewsSection'
 import GalleryPreview from '@/components/site/GalleryPreview'
-import ReservationSection from '@/components/site/ReservationSection'
 import MapSection from '@/components/site/MapSection'
 
 export default function HomePage() {
@@ -18,7 +17,6 @@ export default function HomePage() {
       <SignatureDishes />
       <ReviewsSection />
       <GalleryPreview />
-      <ReservationSection />
       <MapSection />
     </>
   )

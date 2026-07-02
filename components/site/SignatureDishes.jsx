@@ -9,7 +9,7 @@ const signatures = [
     title: 'The Chicken Dinosaur Rice',
     marathi: 'चिकन डायनोसॉर राईस',
     image: IMG.friedRice1,
-    text: 'A Shindesh legend. Fragrant fried rice piled with juicy chicken chunks, crunchy veggies, and our house dinosaur gravy — a fire-red sauce simmered for hours. This is the dish people cross Satara for.',
+    text: 'A Shindeshahi legend. Fragrant fried rice piled with juicy chicken chunks, crunchy veggies, and our house dinosaur gravy — a fire-red sauce simmered for hours. This is the dish people cross Satara for.',
     stats: [{ v: '₹270', l: 'Full plate' }, { v: '#1', l: 'Bestseller' }, { v: '3K+', l: 'Fans ordered' }]
   },
   {

@@ -29,7 +29,7 @@ export default function ReservationConfirmationPage() {
   if (!r) return <div className="min-h-screen flex items-center justify-center pt-24"><div className="animate-pulse text-brand-gold/70">Loading...</div></div>
 
   const bookingId = r.id.slice(0, 8).toUpperCase()
-  const shareText = `I just booked a table at Shindesh Chinese Resto in Satara for ${r.date} at ${r.time}!`
+  const shareText = `I just booked a table at Shindeshahi Chinese Restro in Satara for ${r.date} at ${r.time}!`
 
   return (
     <div className="min-h-screen pt-24 md:pt-28 pb-24 bg-brand-ink">

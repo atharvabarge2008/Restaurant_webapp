@@ -21,15 +21,14 @@ export default function MapSection() {
               <span className="uppercase tracking-[0.35em] text-[10px] font-semibold text-brand-gold">Find Us</span>
             </div>
             <div className="font-chinese text-brand-red-light/40 text-4xl mb-2">莅临光顾</div>
-            <h2 className="font-display text-4xl md:text-5xl leading-tight mb-6">A palace of flavors in the heart of Chinatown</h2>
+            <h2 className="font-display text-4xl md:text-5xl leading-tight mb-6">Visit us in Guruwar Peth, Satara</h2>
             <p className="font-serif italic text-lg text-brand-cream/70 leading-relaxed mb-8">
-              Tucked behind a lantern-lit alley, our dining room has hosted diplomats, dreamers and dumpling devotees for four unforgettable decades.
+              Located in the heart of Satara, Shindeshahi has been serving authentic Indo-Chinese cuisine to locals and visitors for years.
             </p>
 
             <div className="space-y-5">
               <Row icon={MapPin} label="Address" value={BRAND.address}/>
               <Row icon={Phone} label="Phone" value={BRAND.phone} href={`tel:${BRAND.phone}`}/>
-              <Row icon={Mail} label="Email" value={BRAND.email} href={`mailto:${BRAND.email}`}/>
             </div>
 
             <a href={directions} target="_blank" rel="noreferrer" className="btn-gold mt-8 self-start">

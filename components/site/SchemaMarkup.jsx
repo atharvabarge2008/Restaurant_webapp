@@ -9,7 +9,7 @@ export default function SchemaMarkup() {
     '@id': `${base}/#restaurant`,
     name: BRAND.fullName,
     alternateName: [BRAND.name, BRAND.marathi],
-    description: 'Satara\'s most-loved Indo-Chinese restaurant. Home of Chicken Dinosaur Rice, Chicken Lollipop, Manchow Soup and the legendary Shindesh Special Noodles. 4.5\u2605 on Google with 855+ reviews.',
+    description: 'Satara\'s most-loved Indo-Chinese restaurant. Home of Chicken Dinosaur Rice, Chicken Lollipop, Manchow Soup and the legendary Shindeshahi Special Noodles. 4.5\u2605 on Google with 855+ reviews.',
     url: base,
     telephone: BRAND.phone,
     email: BRAND.email,

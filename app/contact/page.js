@@ -47,8 +47,7 @@ export default function ContactPage() {
                 {[
                   { icon: MapPin, label: 'Visit us', value: BRAND.address },
                   { icon: Phone, label: 'Call us', value: BRAND.phone, href: `tel:${BRAND.phone}` },
-                  { icon: Mail, label: 'Email us', value: BRAND.email, href: `mailto:${BRAND.email}` },
-                  { icon: Clock, label: 'Hours', value: 'Mon-Sun · 5:30 PM – 11:00 PM' }
+                  { icon: Clock, label: 'Hours', value: 'Mon-Sun · 11:00 AM – 10:15 PM' }
                 ].map((c, i) => {
                   const inner = (
                     <div className="flex items-start gap-4 p-5 rounded-2xl border border-brand-gold/15 hover:border-brand-gold/40 transition group">

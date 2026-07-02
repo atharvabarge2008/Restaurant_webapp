@@ -52,7 +52,7 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-brand-cream/60 leading-relaxed text-sm max-w-sm mb-4" style={{ fontFamily: 'var(--font-chinese)' }}>{BRAND.marathi}</p>
-            <p className="text-brand-cream/60 leading-relaxed text-sm max-w-sm mb-6">Satara’s most-loved Indo-Chinese kitchen. Home of Chicken Dinosaur Rice, Manchow Soup and the legendary Shindesh Special.</p>
+            <p className="text-brand-cream/60 leading-relaxed text-sm max-w-sm mb-6">Satara’s most-loved Indo-Chinese kitchen. Home of Chicken Dinosaur Rice, Manchow Soup and the legendary Shindeshahi Special.</p>
             <div className="flex gap-3">
               <a href={BRAND.socials.instagram} target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full glass hover:bg-brand-gold hover:text-brand-ink transition flex items-center justify-center text-brand-gold" aria-label="Instagram"><Instagram className="w-4 h-4"/></a>
               <a href={BRAND.socials.facebook} target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full glass hover:bg-brand-gold hover:text-brand-ink transition flex items-center justify-center text-brand-gold" aria-label="Facebook"><Facebook className="w-4 h-4"/></a>

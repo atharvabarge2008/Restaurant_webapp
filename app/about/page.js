@@ -7,7 +7,7 @@ const timeline = [
   { year: '2015', title: 'A Corner in Guruwar Peth', marathi: 'सुरुवात', text: 'Shindeshahi opens its shutters in a small corner shop opposite Y.C. College. One wok, one dream: give Satara the freshest, tastiest Indo-Chinese food in the city.' },
   { year: '2017', title: 'The Dinosaur Is Born', marathi: 'डायनोसॉर', text: 'A regular customer asks for “something extra spicy, extra masaledar.” Our house Dinosaur Rice is created that evening. Word spreads across Satara within weeks.' },
   { year: '2020', title: 'Zomato & Swiggy Go Live', marathi: 'घरपोहोच', text: 'Home delivery launches on both platforms. Within months, we hit 4.6★ on Zomato and cross 1,500 ratings on Swiggy.' },
-  { year: '2023', title: '855+ Google Reviews', marathi: 'विश्वास', text: 'A 4.5★ average and hundreds of loving reviews later, Shindesh is officially Satara’s go-to Indo-Chinese destination.' },
+  { year: '2023', title: '855+ Google Reviews', marathi: 'विश्वास', text: 'A 4.5★ average and hundreds of loving reviews later, Shindeshahi is officially Satara’s go-to Indo-Chinese destination.' },
   { year: 'Today', title: 'Still Wok-Fired to Order', marathi: 'आजही तेच', text: 'Same recipes. Same hands. Same fire. Come dine with us in Guruwar Peth, or tap Zomato/Swiggy and we’ll bring the wok to you.' }
 ]
 

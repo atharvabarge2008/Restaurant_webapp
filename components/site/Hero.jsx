@@ -74,7 +74,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.85 }}
           className="mt-8 max-w-xl text-brand-cream/75 font-serif text-xl md:text-2xl leading-relaxed italic"
         >
-          Satara’s most-loved Indo-Chinese kitchen. Home of the legendary Chicken Dinosaur Rice, Manchow Soup and our house-secret Shindesh Special.
+          Satara’s most-loved Indo-Chinese kitchen. Home of the legendary Chicken Dinosaur Rice, Manchow Soup and our house-secret Shindeshahi Special.
         </motion.p>
 
         <motion.div
@@ -82,12 +82,12 @@ export default function Hero() {
           className="mt-10 flex flex-wrap items-center gap-4"
         >
           <Magnetic strength={0.35}>
-            <Link href="/menu" data-cursor="hover" data-cursor-label="Order" className="btn-gold !px-8 !py-4 !text-[13px]">
-              Order Online <ArrowRight className="w-4 h-4"/>
-            </Link>
+            <a href={BRAND.order.zomato} target="_blank" rel="noreferrer" data-cursor="hover" data-cursor-label="Order" className="btn-gold !px-8 !py-4 !text-[13px]">
+              Order on Zomato <ArrowRight className="w-4 h-4"/>
+            </a>
           </Magnetic>
           <Magnetic strength={0.25}>
-            <Link href="/reservation" data-cursor="hover" className="btn-ghost-gold !px-8 !py-4 !text-[13px]">Book a Table</Link>
+            <a href={BRAND.order.swiggy} target="_blank" rel="noreferrer" data-cursor="hover" className="btn-ghost-gold !px-8 !py-4 !text-[13px]">Order on Swiggy</a>
           </Magnetic>
           <a href={BRAND.order.call} className="text-brand-cream/70 hover:text-brand-gold text-sm inline-flex items-center gap-2 group">
             <span className="w-8 h-8 rounded-full glass flex items-center justify-center group-hover:bg-brand-gold group-hover:text-brand-ink transition"><Phone className="w-3.5 h-3.5"/></span>
@@ -105,12 +105,12 @@ export default function Hero() {
               {[...Array(5)].map((_, i) => <Star key={i} className={`w-4 h-4 ${i < 4 ? 'fill-brand-gold' : 'fill-brand-gold/60'}`}/>)}
             </div>
             <div className="font-display text-2xl text-gold-gradient"><AnimatedCounter value={4.5} decimals={1}/></div>
-            <div className="text-brand-cream/60 text-xs">
+            <div className="text-brand-cream font-semibold text-sm drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
               Google · <AnimatedCounter value={855}/>+ reviews
             </div>
           </div>
           <div className="h-6 w-px bg-brand-gold/25 hidden md:block"/>
-          <div className="text-[10px] text-brand-cream/60 uppercase tracking-[0.35em]">Zomato 4.6★ · Swiggy 4.2★ · <AnimatedCounter value={3247}/>+ ratings</div>
+          <div className="text-xs text-brand-cream font-semibold uppercase tracking-[0.35em] drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">Zomato 4.6★ · Swiggy 4.2★ · <AnimatedCounter value={3247}/>+ ratings</div>
         </motion.div>
       </motion.div>
 

@@ -42,7 +42,7 @@ export default function CartPage() {
               <ShoppingBag className="w-8 h-8 text-brand-gold"/>
             </div>
             <h3 className="font-display text-3xl mb-3">Your cart is empty</h3>
-            <p className="text-brand-cream/60 mb-8">Add some delicious Shindesh bestsellers to get started.</p>
+            <p className="text-brand-cream/60 mb-8">Add some delicious Shindeshahi bestsellers to get started.</p>
             <Link href="/menu" className="btn-gold">Browse Menu <ArrowRight className="w-4 h-4"/></Link>
           </motion.div>
         ) : (

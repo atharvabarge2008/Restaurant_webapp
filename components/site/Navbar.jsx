@@ -65,9 +65,6 @@ export default function Navbar() {
             </nav>
 
             <div className="flex items-center gap-3">
-              <a href={`tel:${BRAND.phone.replace(/[^+\d]/g,'')}`} className="hidden xl:inline-flex items-center gap-2 text-xs text-brand-cream/80 hover:text-brand-gold transition">
-                <Phone className="w-3.5 h-3.5"/> {BRAND.phone}
-              </a>
               <Link href="/cart" className="relative w-10 h-10 rounded-full glass hover:gold-border flex items-center justify-center text-brand-gold transition group" aria-label="Cart">
                 <ShoppingBag className="w-4 h-4"/>
                 <AnimatePresence>
