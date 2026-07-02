@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Plus, Minus, Trash2, Tag, ShoppingBag, ArrowRight, X, Sparkles, ChefHat } from 'lucide-react'
 import { useCart } from '@/lib/cart-context'
+import { BRAND } from '@/lib/site-data'
 import { toast } from 'sonner'
 
 export default function CartPage() {

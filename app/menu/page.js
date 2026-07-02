@@ -1,17 +1,12 @@
 'use client'
 import { useState, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Search, Plus, Minus, ShoppingBag, X, ChevronRight, Flame } from 'lucide-react'
-import Link from 'next/link'
+import { Search, X, Flame } from 'lucide-react'
 import { MENU_CATEGORIES, FULL_MENU, IMG, BRAND } from '@/lib/site-data'
-import { useCart } from '@/lib/cart-context'
-import { toast } from 'sonner'
 
 export default function MenuPage() {
   const [cat, setCat] = useState('All')
   const [q, setQ] = useState('')
-  const [portionOpen, setPortionOpen] = useState(null) // dish object when has halfPrice
-  const { items, addItem, totals } = useCart()
 
   const cats = ['All', ...MENU_CATEGORIES]
 
@@ -23,17 +18,6 @@ export default function MenuPage() {
       return (d.name.toLowerCase().includes(term) || (d.marathi||'').toLowerCase().includes(term) || (d.description||'').toLowerCase().includes(term) || d.category.toLowerCase().includes(term))
     })
   }, [cat, q])
-
-  const handleAdd = (dish, portion = 'full') => {
-    addItem(dish, portion)
-    toast.success(`${dish.name} added · ${portion === 'half' ? 'Half' : 'Full'} plate`)
-    setPortionOpen(null)
-  }
-
-  const onAddClick = (dish) => {
-    if (dish.halfPrice) setPortionOpen(dish)
-    else handleAdd(dish, 'full')
-  }
 
   return (
     <div className="min-h-screen pb-32">
@@ -87,7 +71,6 @@ export default function MenuPage() {
             <div className="grid md:grid-cols-2 gap-4 md:gap-6 max-w-6xl mx-auto">
               <AnimatePresence mode="popLayout">
                 {filtered.map((d, i) => {
-                  const inCart = items.filter(it => it.id === d.id).reduce((s, it) => s + it.qty, 0)
                   return (
                     <motion.div
                       key={d.id}
@@ -99,7 +82,6 @@ export default function MenuPage() {
                       <div className="relative w-24 h-24 md:w-32 md:h-32 rounded-xl overflow-hidden shrink-0">
                         <img src={d.image} alt={d.name} loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"/>
                         {d.tag && <div className="absolute top-1.5 left-1.5 bg-brand-red text-brand-gold text-[8px] uppercase tracking-widest px-2 py-0.5 rounded-full">{d.tag}</div>}
-                        {inCart > 0 && <div className="absolute bottom-1.5 right-1.5 min-w-[24px] h-6 px-2 rounded-full bg-brand-gold text-brand-ink text-[11px] font-bold flex items-center justify-center">{inCart}</div>}
                       </div>
                       <div className="flex-1 min-w-0 flex flex-col">
                         <div className="flex items-start justify-between gap-3 mb-1">
@@ -118,9 +100,6 @@ export default function MenuPage() {
                             {d.category}
                             {(d.tag === 'Spicy' || d.name.toLowerCase().includes('schezwan')) && <Flame className="w-3 h-3 text-brand-red-light"/>}
                           </div>
-                          <button onClick={() => onAddClick(d)} className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-brand-gold text-brand-ink text-[11px] font-bold uppercase tracking-widest hover:brightness-110 transition shadow-gold">
-                            <Plus className="w-3.5 h-3.5"/> Add
-                          </button>
                         </div>
                       </div>
                     </motion.div>
@@ -131,76 +110,6 @@ export default function MenuPage() {
           )}
         </div>
       </section>
-
-      {/* Sticky cart bar */}
-      <AnimatePresence>
-        {totals.itemCount > 0 && (
-          <motion.div
-            initial={{ y: 120, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: 120, opacity: 0 }}
-            transition={{ type: 'spring', stiffness: 260, damping: 25 }}
-            className="fixed bottom-4 left-1/2 -translate-x-1/2 z-30 w-[calc(100%-2rem)] max-w-md"
-          >
-            <Link href="/cart" className="flex items-center justify-between glass gold-border rounded-full pl-4 pr-2 py-2 shadow-gold">
-              <div className="flex items-center gap-3">
-                <div className="relative w-10 h-10 rounded-full bg-gold-gradient text-brand-ink flex items-center justify-center">
-                  <ShoppingBag className="w-4 h-4"/>
-                  <span className="absolute -top-1 -right-1 min-w-[20px] h-5 rounded-full bg-brand-red text-brand-gold text-[10px] font-bold flex items-center justify-center px-1.5 ring-2 ring-brand-ink">{totals.itemCount}</span>
-                </div>
-                <div>
-                  <div className="text-[10px] uppercase tracking-widest text-brand-gold/70">{totals.itemCount} items</div>
-                  <div className="font-semibold text-brand-cream">₹{totals.subtotal}</div>
-                </div>
-              </div>
-              <span className="btn-gold !py-2.5 !px-5 !text-[11px]">View Cart <ChevronRight className="w-4 h-4"/></span>
-            </Link>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* Portion selector modal */}
-      <AnimatePresence>
-        {portionOpen && (
-          <motion.div
-            initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-black/80 backdrop-blur-lg flex items-end md:items-center justify-center p-4"
-            onClick={() => setPortionOpen(null)}
-          >
-            <motion.div
-              initial={{ y: 50, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: 50, opacity: 0 }}
-              transition={{ type: 'spring', stiffness: 300, damping: 28 }}
-              onClick={(e) => e.stopPropagation()}
-              className="w-full max-w-md bg-brand-ink-soft gold-border rounded-3xl overflow-hidden"
-            >
-              <div className="relative h-40">
-                <img src={portionOpen.image} alt={portionOpen.name} className="absolute inset-0 w-full h-full object-cover"/>
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-ink-soft to-transparent"/>
-                <button onClick={() => setPortionOpen(null)} className="absolute top-3 right-3 w-9 h-9 rounded-full bg-black/60 hover:bg-brand-red text-brand-gold flex items-center justify-center"><X className="w-4 h-4"/></button>
-              </div>
-              <div className="p-6">
-                <div className="text-brand-red-light/60 text-xs mb-1" style={{ fontFamily: 'var(--font-chinese)' }}>{portionOpen.marathi}</div>
-                <h3 className="font-display text-2xl text-brand-cream mb-1">{portionOpen.name}</h3>
-                <p className="text-sm text-brand-cream/60 mb-6">Choose portion size:</p>
-                <div className="space-y-3">
-                  <button onClick={() => handleAdd(portionOpen, 'full')} className="w-full flex items-center justify-between p-4 rounded-xl border border-brand-gold/30 hover:border-brand-gold hover:bg-brand-gold/5 transition text-left">
-                    <div>
-                      <div className="font-semibold text-brand-cream">Full Plate</div>
-                      <div className="text-xs text-brand-cream/50">Regular family portion</div>
-                    </div>
-                    <div className="font-display text-xl text-gold-gradient">₹{portionOpen.price}</div>
-                  </button>
-                  <button onClick={() => handleAdd(portionOpen, 'half')} className="w-full flex items-center justify-between p-4 rounded-xl border border-brand-gold/30 hover:border-brand-gold hover:bg-brand-gold/5 transition text-left">
-                    <div>
-                      <div className="font-semibold text-brand-cream">Half Plate</div>
-                      <div className="text-xs text-brand-cream/50">Smaller portion, same taste</div>
-                    </div>
-                    <div className="font-display text-xl text-gold-gradient">₹{portionOpen.halfPrice}</div>
-                  </button>
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
 
       <style jsx global>{`.no-scrollbar::-webkit-scrollbar{display:none} .no-scrollbar{scrollbar-width:none}`}</style>
     </div>
