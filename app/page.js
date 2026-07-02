@@ -1,4 +1,5 @@
 import Hero from '@/components/site/Hero'
+import StatsSection from '@/components/site/StatsSection'
 import FeaturedDishes from '@/components/site/FeaturedDishes'
 import WhyChooseUs from '@/components/site/WhyChooseUs'
 import SignatureDishes from '@/components/site/SignatureDishes'
@@ -11,6 +12,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <StatsSection />
       <FeaturedDishes />
       <WhyChooseUs />
       <SignatureDishes />

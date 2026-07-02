@@ -3,27 +3,38 @@ import Link from 'next/link'
 import { Instagram, Facebook, MapPin, Phone, Mail, Clock, Utensils } from 'lucide-react'
 import { BRAND, NAV_LINKS } from '@/lib/site-data'
 
+const MARQUEE_WORDS = ['Chicken Dinosaur', 'ShindeShahi Special', 'Manchow Soup', 'Chicken Lollipop', 'Hakka Noodles', 'Schezwan Rice', 'Momos', 'Manchurian', 'Peri Peri', 'Triple Rice']
+
 export default function Footer() {
   return (
     <footer className="relative bg-black border-t border-brand-gold/15 overflow-hidden">
-      <div className="absolute inset-0 dot-grid opacity-40"/>
+      {/* Marquee word strip */}
+      <div className="relative border-b border-brand-gold/15 overflow-hidden py-8">
+        <div className="flex gap-16 whitespace-nowrap" style={{ animation: 'marqueeText 40s linear infinite', width: 'max-content' }}>
+          {[...MARQUEE_WORDS, ...MARQUEE_WORDS].map((w, i) => (
+            <span key={i} className="font-display italic text-5xl md:text-7xl text-brand-cream/10 hover:text-brand-gold transition-colors">{w} <span className="text-brand-red/40">•</span></span>
+          ))}
+        </div>
+      </div>
+
+      <div className="absolute inset-0 dot-grid opacity-30"/>
       <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full bg-brand-red/10 blur-[120px]"/>
       <div className="relative container mx-auto px-6 pt-20 pb-8">
 
         {/* Order CTA */}
-        <div className="mb-16 glass gold-border rounded-3xl p-8 md:p-10 grid md:grid-cols-2 gap-6 items-center">
-          <div>
-            <div className="text-brand-gold text-xs tracking-[0.35em] uppercase mb-2">Hungry?</div>
-            <h3 className="font-display text-3xl md:text-4xl leading-tight">Get ShindeShahi delivered <span className="text-gold-gradient">hot to your door.</span></h3>
+        <div className="mb-16 glass gold-border rounded-3xl p-8 md:p-12 grid md:grid-cols-2 gap-6 items-center relative overflow-hidden">
+          <div className="absolute -top-24 -right-16 w-72 h-72 rounded-full bg-brand-gold/10 blur-3xl"/>
+          <div className="relative">
+            <div className="text-brand-gold text-xs tracking-[0.4em] uppercase mb-3">Hungry?</div>
+            <h3 className="font-display font-bold text-3xl md:text-5xl leading-[1.05]">Get ShindeShahi delivered <span className="text-gold-gradient italic">hot to your door.</span></h3>
           </div>
-          <div className="flex flex-wrap gap-3 md:justify-end">
-            <a href={BRAND.order.zomato} target="_blank" rel="noreferrer" className="btn-gold">Order on Zomato</a>
-            <a href={BRAND.order.swiggy} target="_blank" rel="noreferrer" className="btn-ghost-gold">Order on Swiggy</a>
+          <div className="relative flex flex-wrap gap-3 md:justify-end">
+            <a href={BRAND.order.zomato} target="_blank" rel="noreferrer" data-cursor="hover" className="btn-gold">Order on Zomato</a>
+            <a href={BRAND.order.swiggy} target="_blank" rel="noreferrer" data-cursor="hover" className="btn-ghost-gold">Order on Swiggy</a>
           </div>
         </div>
 
         <div className="grid lg:grid-cols-12 gap-12 mb-16">
-          {/* Brand */}
           <div className="lg:col-span-4">
             <div className="flex items-center gap-3 mb-5">
               <div className="w-12 h-12 rounded-full bg-red-gradient flex items-center justify-center shadow-red">
@@ -39,22 +50,18 @@ export default function Footer() {
             <div className="flex gap-3">
               <a href={BRAND.socials.instagram} target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full glass hover:bg-brand-gold hover:text-brand-ink transition flex items-center justify-center text-brand-gold" aria-label="Instagram"><Instagram className="w-4 h-4"/></a>
               <a href={BRAND.socials.facebook} target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full glass hover:bg-brand-gold hover:text-brand-ink transition flex items-center justify-center text-brand-gold" aria-label="Facebook"><Facebook className="w-4 h-4"/></a>
-              <a href={BRAND.socials.zomato} target="_blank" rel="noreferrer" className="px-3 h-10 rounded-full glass hover:bg-brand-red hover:text-white transition flex items-center justify-center text-[11px] font-bold text-brand-gold" aria-label="Zomato">zomato</a>
-              <a href={BRAND.socials.swiggy} target="_blank" rel="noreferrer" className="px-3 h-10 rounded-full glass hover:bg-orange-500 hover:text-white transition flex items-center justify-center text-[11px] font-bold text-brand-gold" aria-label="Swiggy">Swiggy</a>
+              <a href={BRAND.socials.zomato} target="_blank" rel="noreferrer" className="px-3 h-10 rounded-full glass hover:bg-brand-red hover:text-white transition flex items-center justify-center text-[11px] font-bold text-brand-gold">zomato</a>
+              <a href={BRAND.socials.swiggy} target="_blank" rel="noreferrer" className="px-3 h-10 rounded-full glass hover:bg-orange-500 hover:text-white transition flex items-center justify-center text-[11px] font-bold text-brand-gold">Swiggy</a>
             </div>
           </div>
 
-          {/* Links */}
           <div className="lg:col-span-2">
             <div className="text-brand-gold font-semibold uppercase text-xs tracking-[0.28em] mb-5">Explore</div>
             <ul className="space-y-3">
-              {NAV_LINKS.map(l => (
-                <li key={l.href}><Link href={l.href} className="text-brand-cream/70 hover:text-brand-gold transition text-sm">{l.label}</Link></li>
-              ))}
+              {NAV_LINKS.map(l => <li key={l.href}><Link href={l.href} className="text-brand-cream/70 hover:text-brand-gold transition text-sm">{l.label}</Link></li>)}
             </ul>
           </div>
 
-          {/* Contact */}
           <div className="lg:col-span-3">
             <div className="text-brand-gold font-semibold uppercase text-xs tracking-[0.28em] mb-5">Contact</div>
             <ul className="space-y-4 text-sm text-brand-cream/70">
@@ -65,7 +72,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Hours */}
           <div className="lg:col-span-3">
             <div className="text-brand-gold font-semibold uppercase text-xs tracking-[0.28em] mb-5">Hours</div>
             <ul className="space-y-4 text-sm text-brand-cream/70">
@@ -80,6 +86,11 @@ export default function Footer() {
               ))}
             </ul>
           </div>
+        </div>
+
+        {/* Big brand mark */}
+        <div className="relative mb-10 select-none pointer-events-none">
+          <div className="font-display font-black text-[18vw] leading-none text-transparent bg-clip-text bg-gradient-to-b from-brand-gold/25 via-brand-gold/5 to-transparent tracking-tighter text-center">SHINDESHAHI</div>
         </div>
 
         <div className="pt-8 border-t border-brand-gold/15 flex flex-col md:flex-row items-center justify-between gap-4">

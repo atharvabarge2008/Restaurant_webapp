@@ -5,6 +5,9 @@ import Navbar from '@/components/site/Navbar'
 import Footer from '@/components/site/Footer'
 import SmoothScroll from '@/components/site/SmoothScroll'
 import FloatingButtons from '@/components/site/FloatingButtons'
+import LoadingScreen from '@/components/premium/LoadingScreen'
+import { CustomCursor } from '@/components/premium/PremiumFX'
+import PageTransition from '@/components/premium/PageTransition'
 import { Toaster } from 'sonner'
 
 const display = Playfair_Display({ subsets: ['latin'], weight: ['500','600','700','800','900'], variable: '--font-display', display: 'swap' })
@@ -14,13 +17,12 @@ const chinese = Noto_Serif_SC({ subsets: ['latin'], weight: ['400','700','900'],
 
 export const metadata = {
   title: 'ShindeShahi Chinese Resto — Satara\'s Favourite Indo-Chinese Since 2015',
-  description: 'ShindeShahi Chinese Resto in Guruwar Peth, Satara. Home of the legendary Chicken Dinosaur Rice, Chicken Lollipop, Manchow Soup and ShindeShahi Special Noodles. 4.5★ on Google · 855+ reviews · Order on Zomato & Swiggy.',
-  keywords: ['ShindeShahi', 'chinese restaurant satara', 'indo-chinese satara', 'chicken lollipop satara', 'best chinese food satara', 'guruwar peth restaurant', 'shindeshahi chinese resto', 'manchow soup satara', 'chinese dinosaur rice', 'शिंदेशाही'],
+  description: 'ShindeShahi Chinese Resto in Guruwar Peth, Satara. Home of the legendary Chicken Dinosaur Rice, Chicken Lollipop, Manchow Soup and ShindeShahi Special Noodles. 4.5\u2605 on Google · 855+ reviews · Order on Zomato & Swiggy.',
+  keywords: ['ShindeShahi', 'chinese restaurant satara', 'indo-chinese satara', 'chicken lollipop satara', 'best chinese food satara', 'guruwar peth restaurant'],
   openGraph: {
     title: 'ShindeShahi Chinese Resto — Taste That Wins Hearts',
-    description: 'Satara\'s most-loved Indo-Chinese kitchen. Legendary Chicken Dinosaur Rice, Manchurian, Momos and more. Order online on Zomato & Swiggy.',
-    type: 'website',
-    locale: 'en_IN'
+    description: 'Satara\'s most-loved Indo-Chinese kitchen. Legendary Chicken Dinosaur Rice, Manchurian, Momos & more.',
+    type: 'website', locale: 'en_IN'
   }
 }
 
@@ -33,9 +35,11 @@ export default function RootLayout({ children }) {
       </head>
       <body className="bg-brand-ink text-brand-cream antialiased overflow-x-hidden">
         <Providers>
+          <LoadingScreen />
+          <CustomCursor />
           <SmoothScroll />
           <Navbar />
-          <main className="relative">{children}</main>
+          <PageTransition><main className="relative">{children}</main></PageTransition>
           <Footer />
           <FloatingButtons />
           <Toaster theme="dark" position="top-center" toastOptions={{ style: { background: '#111', color: '#FFD700', border: '1px solid rgba(255,215,0,0.3)' } }} />
