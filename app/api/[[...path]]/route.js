@@ -4,11 +4,11 @@ import { v4 as uuidv4 } from 'uuid'
 
 let cachedClient = null
 async function getDb() {
-  if (cachedClient) return cachedClient.db()
+  if (cachedClient) return cachedClient.db(process.env.DB_NAME)
   const client = new MongoClient(process.env.MONGO_URL)
   await client.connect()
   cachedClient = client
-  return client.db()
+  return client.db(process.env.DB_NAME)
 }
 
 const corsHeaders = {
