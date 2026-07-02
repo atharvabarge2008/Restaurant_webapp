@@ -18,6 +18,10 @@
     --font-serif: 'Cormorant Garamond', Georgia, serif;
     --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
     --font-chinese: 'Noto Serif SC', serif;
+
+    /* Spacing scale (8pt grid) */
+    --space-1: 0.5rem;  --space-2: 1rem;   --space-3: 1.5rem; --space-4: 2rem;
+    --space-5: 3rem;    --space-6: 4rem;   --space-7: 6rem;   --space-8: 8rem;
   }
   .dark {
     --background: 0 0% 7%; --foreground: 51 100% 96%;
@@ -33,9 +37,14 @@
 
 @layer base {
   * { @apply border-border; }
+  *, *::before, *::after { box-sizing: border-box; }
   html {
     -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
     scroll-behavior: smooth;
+    text-rendering: optimizeLegibility;
+    -webkit-tap-highlight-color: transparent;
+    text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
   }
   html.has-cursor, html.has-cursor * { cursor: none !important; }
   html.has-cursor input, html.has-cursor textarea, html.has-cursor select { cursor: text !important; }
@@ -44,10 +53,69 @@
     font-family: var(--font-sans);
     background-color: #0a0a0a;
     letter-spacing: -0.01em;
+    line-height: 1.55;
+    text-underline-offset: 3px;
   }
-  h1, h2, h3, h4, h5 { font-family: var(--font-display); letter-spacing: -0.028em; }
+  h1, h2, h3, h4, h5 { font-family: var(--font-display); letter-spacing: -0.028em; line-height: 1.08; }
   h1 { font-weight: 700; }
+  h2 { font-weight: 700; }
+  h3 { font-weight: 600; }
+  p { text-wrap: pretty; }
+  h1, h2, h3, h4, h5 { text-wrap: balance; }
+  img, video { max-width: 100%; height: auto; }
+  a, button { touch-action: manipulation; }
   ::selection { background: #B71C1C; color: #FFD700; }
+
+  /* Focus-visible */
+  :focus { outline: none; }
+  :focus-visible {
+    outline: 2px solid #FFD700;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  html.has-cursor :focus-visible { outline-color: #FFD700; }
+
+  /* Skip link */
+  .skip-link {
+    position: fixed; top: -100px; left: 1rem; z-index: 10001;
+    background: #FFD700; color: #111; padding: 0.85rem 1.25rem;
+    border-radius: 999px; font-weight: 700; font-size: 0.85rem;
+    box-shadow: 0 8px 30px rgba(255,215,0,0.4);
+    transition: top 0.25s ease;
+  }
+  .skip-link:focus { top: 1rem; }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+    .lenis-smooth { scroll-behavior: auto !important; }
+  }
+
+  /* Touch device tweaks */
+  @media (pointer: coarse) {
+    /* Ensure tap targets are at least 44x44 */
+    button, a, [role="button"], input, select, textarea {
+      min-height: 44px;
+    }
+    button.no-min, a.no-min { min-height: auto; }
+  }
+
+  /* Mobile fluid typography for display */
+  @media (max-width: 480px) {
+    h1 { letter-spacing: -0.02em; }
+  }
+
+  /* Print styles */
+  @media print {
+    body { background: white !important; color: black !important; }
+    .glass, .btn-gold, .btn-ghost-gold { background: white !important; color: black !important; box-shadow: none !important; border: 1px solid #ccc !important; }
+    header, footer, .no-print { display: none !important; }
+  }
 }
 
 @layer utilities {
@@ -77,7 +145,6 @@
     border: 1px solid rgba(255,215,0,0.35);
     box-shadow: 0 0 0 1px rgba(255,215,0,0.1) inset, 0 8px 40px -12px rgba(255,215,0,0.15);
   }
-  .hairline { border-color: rgba(255,215,0,0.25); }
   .dot-grid {
     background-image: radial-gradient(rgba(255,215,0,0.12) 1px, transparent 1px);
     background-size: 22px 22px;
@@ -93,23 +160,23 @@
     color: #111; border-radius: 999px;
     transition: all .5s cubic-bezier(.2,.7,.2,1);
     box-shadow: 0 10px 30px -10px rgba(255,215,0,0.55), inset 0 -2px 0 rgba(0,0,0,0.1);
-    position: relative; overflow: hidden;
+    position: relative; overflow: hidden; min-height: 44px;
   }
   .btn-gold::before {
     content: ''; position: absolute; inset: 0;
     background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.6) 50%, transparent 70%);
-    transform: translateX(-100%);
-    transition: transform 0.7s cubic-bezier(.2,.7,.2,1);
+    transform: translateX(-100%); transition: transform 0.7s cubic-bezier(.2,.7,.2,1);
   }
   .btn-gold:hover { transform: translateY(-2px); background-position: 100% 50%; box-shadow: 0 18px 40px -12px rgba(255,215,0,0.7); }
   .btn-gold:hover::before { transform: translateX(100%); }
+  .btn-gold:active { transform: translateY(0); }
 
   .btn-ghost-gold {
     @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 font-semibold tracking-wide uppercase text-xs;
     color: #FFD700; border: 1px solid rgba(255,215,0,0.4); border-radius: 999px;
     background: rgba(255,215,0,0.04);
     transition: all .4s cubic-bezier(.2,.7,.2,1);
-    position: relative; overflow: hidden;
+    position: relative; overflow: hidden; min-height: 44px;
   }
   .btn-ghost-gold::after {
     content: ''; position: absolute; inset: 0; border-radius: 999px;
@@ -130,6 +197,20 @@
   .card-shine:hover::after { opacity: 1; }
 
   .divider-gold { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,215,0,0.5), transparent); }
+
+  .container-narrow { max-width: 1240px; margin-inline: auto; padding-inline: 1.25rem; }
+  @media (min-width: 768px) { .container-narrow { padding-inline: 1.5rem; } }
+
+  /* Section spacing scale for consistency */
+  .section-y { padding-block: clamp(4rem, 10vw, 8rem); }
+  .section-y-sm { padding-block: clamp(3rem, 6vw, 5rem); }
+
+  /* Visually hidden for a11y */
+  .sr-only {
+    position: absolute !important; width: 1px !important; height: 1px !important;
+    padding: 0 !important; margin: -1px !important; overflow: hidden !important;
+    clip: rect(0,0,0,0) !important; white-space: nowrap !important; border: 0 !important;
+  }
 }
 
 /* Scrollbar */
@@ -161,6 +242,11 @@ html.lenis, html.lenis body { height: auto; }
   to   { transform: translateX(-50%); }
 }
 
-/* No scrollbar util */
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { scrollbar-width: none; }
+
+/* Safe area padding for mobile notches */
+@supports (padding: max(0px)) {
+  .safe-bottom { padding-bottom: max(1rem, env(safe-area-inset-bottom)); }
+  .safe-top    { padding-top:    max(1rem, env(safe-area-inset-top)); }
+}
