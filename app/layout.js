@@ -12,13 +12,14 @@ const sans = Inter({ subsets: ['latin'], weight: ['300','400','500','600','700']
 const chinese = Noto_Serif_SC({ subsets: ['latin'], weight: ['400','700','900'], variable: '--font-chinese', display: 'swap' })
 
 export const metadata = {
-  title: 'Golden Dragon 金龙轩 — Modern Chinese Fine Dining',
-  description: 'Golden Dragon is an award-winning modern Chinese fine dining restaurant offering authentic Cantonese, Sichuan and Peking cuisine crafted by master chefs. Reserve your table today.',
-  keywords: ['chinese restaurant', 'fine dining', 'peking duck', 'dim sum', 'sichuan', 'cantonese', 'best chinese food', 'golden dragon'],
+  title: 'ShindeShahi Chinese Resto — Satara\'s Favourite Indo-Chinese Since 2015',
+  description: 'ShindeShahi Chinese Resto in Guruwar Peth, Satara. Home of the legendary Chicken Dinosaur Rice, Chicken Lollipop, Manchow Soup and ShindeShahi Special Noodles. 4.5★ on Google · 855+ reviews · Order on Zomato & Swiggy.',
+  keywords: ['ShindeShahi', 'chinese restaurant satara', 'indo-chinese satara', 'chicken lollipop satara', 'best chinese food satara', 'guruwar peth restaurant', 'shindeshahi chinese resto', 'manchow soup satara', 'chinese dinosaur rice', 'शिंदेशाही'],
   openGraph: {
-    title: 'Golden Dragon 金龙轩 — Modern Chinese Fine Dining',
-    description: 'Authentic Chinese fine dining. Peking duck, dim sum, hand-pulled noodles & signature hot pot.',
-    type: 'website'
+    title: 'ShindeShahi Chinese Resto — Taste That Wins Hearts',
+    description: 'Satara\'s most-loved Indo-Chinese kitchen. Legendary Chicken Dinosaur Rice, Manchurian, Momos and more. Order online on Zomato & Swiggy.',
+    type: 'website',
+    locale: 'en_IN'
   }
 }
 

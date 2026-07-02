@@ -32,12 +32,12 @@ export default function Navbar() {
             {/* Logo */}
             <Link href="/" className="group flex items-center gap-3">
               <div className="relative w-10 h-10 md:w-11 md:h-11 rounded-full bg-red-gradient flex items-center justify-center shadow-red">
-                <span className="font-chinese text-brand-gold text-lg md:text-xl font-black">龙</span>
+                <span className="font-chinese text-brand-gold text-lg md:text-xl font-black">王</span>
                 <span className="absolute inset-0 rounded-full ring-1 ring-brand-gold/40 group-hover:ring-brand-gold transition"/>
               </div>
               <div className="leading-tight">
                 <div className="font-display text-lg md:text-xl tracking-wide text-gold-gradient">{BRAND.name}</div>
-                <div className="font-chinese text-[10px] md:text-[11px] text-brand-cream/60 -mt-0.5 tracking-[0.35em]">{BRAND.chinese}</div>
+                <div className="text-[9px] md:text-[10px] text-brand-cream/60 -mt-0.5 tracking-[0.28em] uppercase">Chinese Resto · Satara</div>
               </div>
             </Link>
 
@@ -60,7 +60,7 @@ export default function Navbar() {
               <a href={`tel:${BRAND.phone.replace(/[^+\d]/g,'')}`} className="hidden md:inline-flex items-center gap-2 text-xs text-brand-cream/80 hover:text-brand-gold transition">
                 <Phone className="w-3.5 h-3.5"/> {BRAND.phone}
               </a>
-              <Link href="/reservation" className="hidden md:inline-flex btn-gold !py-2.5 !px-5 !text-[11px]">Reserve</Link>
+              <a href={BRAND.order.zomato} target="_blank" rel="noreferrer" className="hidden md:inline-flex btn-gold !py-2.5 !px-5 !text-[11px]">Order Online</a>
               <button onClick={() => setOpen(v => !v)} className="lg:hidden text-brand-gold p-2" aria-label="Toggle menu">
                 {open ? <X className="w-6 h-6"/> : <Menu className="w-6 h-6"/>}
               </button>
@@ -93,7 +93,8 @@ export default function Navbar() {
                     </Link>
                   </motion.div>
                 ))}
-                <Link href="/reservation" className="btn-gold mt-6 justify-center">Reserve a Table</Link>
+                <a href={BRAND.order.zomato} target="_blank" rel="noreferrer" className="btn-gold mt-6 justify-center">Order Online</a>
+                <a href={BRAND.order.call} className="btn-ghost-gold mt-2 justify-center">Call {BRAND.phone}</a>
               </nav>
             </motion.div>
           </motion.div>

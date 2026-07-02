@@ -2,9 +2,9 @@
 import { motion } from 'framer-motion'
 import SectionHeading from './SectionHeading'
 import { WHY_US, IMG } from '@/lib/site-data'
-import { Crown, Flame, Fish, Coffee } from 'lucide-react'
+import { Star, Flame, ChefHat, Bike } from 'lucide-react'
 
-const iconMap = { crown: Crown, flame: Flame, fish: Fish, tea: Coffee }
+const iconMap = { star: Star, flame: Flame, wok: ChefHat, delivery: Bike }
 
 export default function WhyChooseUs() {
   return (
@@ -15,11 +15,11 @@ export default function WhyChooseUs() {
       </div>
 
       <div className="relative container mx-auto px-6">
-        <SectionHeading eyebrow="Why Choose Us" chinese="匠心之道" title="Four pillars of a legendary kitchen" />
+        <SectionHeading eyebrow="Why ShindeShahi" chinese="ब्रांड फर्क" title="What makes us Satara's favourite" />
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
           {WHY_US.map((item, i) => {
-            const Icon = iconMap[item.icon] || Crown
+            const Icon = iconMap[item.icon] || Star
             return (
               <motion.div
                 key={item.title}
@@ -33,7 +33,7 @@ export default function WhyChooseUs() {
                   <div className="w-14 h-14 rounded-xl bg-gold-gradient flex items-center justify-center mb-6 shadow-gold">
                     <Icon className="w-6 h-6 text-brand-ink"/>
                   </div>
-                  <div className="font-chinese text-brand-red-light text-sm tracking-widest mb-2 opacity-70">{item.chinese}</div>
+                  <div className="text-brand-red-light text-sm mb-2 opacity-80" style={{ fontFamily: 'var(--font-chinese)' }}>{item.marathi}</div>
                   <h3 className="font-display text-2xl text-brand-cream mb-3 leading-tight">{item.title}</h3>
                   <p className="text-brand-cream/60 text-sm leading-relaxed">{item.desc}</p>
                   <div className="mt-6 text-4xl font-display text-brand-gold/20">0{i+1}</div>
