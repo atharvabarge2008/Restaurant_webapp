@@ -1,10 +1,11 @@
 'use client'
+import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, Phone, ShoppingBag } from 'lucide-react'
-import { NAV_LINKS, BRAND } from '@/lib/site-data'
+import { NAV_LINKS, BRAND, IMG } from '@/lib/site-data'
 import { useCart } from '@/lib/cart-context'
 
 export default function Navbar() {
@@ -33,9 +34,14 @@ export default function Navbar() {
           <div className={`glass rounded-2xl px-4 md:px-6 py-3 flex items-center justify-between transition-all duration-500 ${scrolled ? 'gold-border shadow-gold' : ''}`}>
             {/* Logo */}
             <Link href="/" className="group flex items-center gap-3">
-              <div className="relative w-10 h-10 md:w-11 md:h-11 rounded-full bg-red-gradient flex items-center justify-center shadow-red">
-                <span className="font-chinese text-brand-gold text-lg md:text-xl font-black">王</span>
-                <span className="absolute inset-0 rounded-full ring-1 ring-brand-gold/40 group-hover:ring-brand-gold transition"/>
+              <div className="relative w-10 h-10 md:w-11 md:h-11 rounded-full overflow-hidden shadow-red ring-1 ring-brand-gold/40 group-hover:ring-brand-gold transition">
+                <Image 
+                  src={IMG.logo} 
+                  alt="Shinde Shahi Chinese Restro Logo" 
+                  fill
+                  className="object-cover"
+                  priority
+                />
               </div>
               <div className="leading-tight">
                 <div className="font-display text-lg md:text-xl tracking-wide text-gold-gradient">{BRAND.name}</div>

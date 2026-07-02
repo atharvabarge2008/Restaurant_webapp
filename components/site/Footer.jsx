@@ -1,9 +1,10 @@
 'use client'
+import Image from 'next/image'
 import Link from 'next/link'
-import { Instagram, Facebook, MapPin, Phone, Mail, Clock, Utensils } from 'lucide-react'
-import { BRAND, NAV_LINKS } from '@/lib/site-data'
+import { Instagram, Facebook, MapPin, Phone, Clock, Utensils } from 'lucide-react'
+import { BRAND, NAV_LINKS, IMG } from '@/lib/site-data'
 
-const MARQUEE_WORDS = ['Chicken Dinosaur', 'Shindesh Special', 'Manchow Soup', 'Chicken Lollipop', 'Hakka Noodles', 'Schezwan Rice', 'Momos', 'Manchurian', 'Peri Peri', 'Triple Rice']
+const MARQUEE_WORDS = ['Chicken Dinosaur', 'Shinde Shahi Special', 'Manchow Soup', 'Chicken Lollipop', 'Hakka Noodles', 'Schezwan Rice', 'Momos', 'Manchurian', 'Peri Peri', 'Triple Rice']
 
 export default function Footer() {
   return (
@@ -26,7 +27,7 @@ export default function Footer() {
           <div className="absolute -top-24 -right-16 w-72 h-72 rounded-full bg-brand-gold/10 blur-3xl"/>
           <div className="relative">
             <div className="text-brand-gold text-xs tracking-[0.4em] uppercase mb-3">Hungry?</div>
-            <h3 className="font-display font-bold text-3xl md:text-5xl leading-[1.05]">Get Shindesh delivered <span className="text-gold-gradient italic">hot to your door.</span></h3>
+            <h3 className="font-display font-bold text-3xl md:text-5xl leading-[1.05]">Get Shinde Shahi delivered <span className="text-gold-gradient italic">hot to your door.</span></h3>
           </div>
           <div className="relative flex flex-wrap gap-3 md:justify-end">
             <a href={BRAND.order.zomato} target="_blank" rel="noreferrer" data-cursor="hover" className="btn-gold">Order on Zomato</a>
@@ -37,8 +38,13 @@ export default function Footer() {
         <div className="grid lg:grid-cols-12 gap-12 mb-16">
           <div className="lg:col-span-4">
             <div className="flex items-center gap-3 mb-5">
-              <div className="w-12 h-12 rounded-full bg-red-gradient flex items-center justify-center shadow-red">
-                <span className="font-chinese text-brand-gold text-xl font-black">王</span>
+              <div className="relative w-12 h-12 rounded-full overflow-hidden shadow-red ring-1 ring-brand-gold/40">
+                <Image 
+                  src={IMG.logo} 
+                  alt="Shinde Shahi Chinese Restro Logo" 
+                  fill
+                  className="object-cover"
+                />
               </div>
               <div>
                 <div className="font-display text-2xl text-gold-gradient">{BRAND.name}</div>
@@ -68,7 +74,6 @@ export default function Footer() {
               <li className="flex gap-3"><MapPin className="w-4 h-4 text-brand-gold shrink-0 mt-0.5"/><span>{BRAND.address}</span></li>
               <li className="flex gap-3"><Phone className="w-4 h-4 text-brand-gold shrink-0 mt-0.5"/><a href={`tel:${BRAND.phone}`}>{BRAND.phone}</a></li>
               <li className="flex gap-3"><Utensils className="w-4 h-4 text-brand-gold shrink-0 mt-0.5"/><a href={BRAND.order.whatsapp} target="_blank" rel="noreferrer">WhatsApp Order</a></li>
-              <li className="flex gap-3"><Mail className="w-4 h-4 text-brand-gold shrink-0 mt-0.5"/><a href={`mailto:${BRAND.email}`}>{BRAND.email}</a></li>
             </ul>
           </div>
 
@@ -88,9 +93,16 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Big brand mark */}
-        <div className="relative mb-10 select-none pointer-events-none">
-          <div className="font-display font-black text-[18vw] leading-none text-transparent bg-clip-text bg-gradient-to-b from-brand-gold/25 via-brand-gold/5 to-transparent tracking-tighter text-center">SHINDESHAHI</div>
+        {/* Brand mark - simplified and consistent */}
+        <div className="relative mb-10 py-12">
+          <div className="text-center">
+            <div className="font-display font-bold text-4xl md:text-6xl text-brand-cream/20 tracking-wide mb-2">
+              SHINDE SHAHI CHINESE RESTRO
+            </div>
+            <div className="text-brand-gold/40 text-sm tracking-widest uppercase">
+              Satara
+            </div>
+          </div>
         </div>
 
         <div className="pt-8 border-t border-brand-gold/15 flex flex-col md:flex-row items-center justify-between gap-4">
