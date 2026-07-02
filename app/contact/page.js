@@ -29,7 +29,6 @@ export default function ContactPage() {
         <img src={IMG.lantern2} alt="" className="absolute inset-0 w-full h-full object-cover"/>
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-brand-ink"/>
         <div className="relative container mx-auto px-6 pt-24 text-center">
-          <div className="font-chinese text-brand-red-light text-5xl md:text-7xl opacity-40 mb-4">联系我们</div>
           <h1 className="font-display text-5xl md:text-8xl leading-none">Get in <em className="text-gold-gradient not-italic">Touch</em></h1>
         </div>
       </section>
@@ -39,7 +38,6 @@ export default function ContactPage() {
           <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
             {/* Info */}
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
-              <div className="font-chinese text-brand-red-light/40 text-4xl mb-3">敬候光临</div>
               <h2 className="font-display text-4xl md:text-5xl mb-6 leading-tight">We would love to hear from you</h2>
               <p className="font-serif italic text-lg text-brand-cream/70 mb-10">Whether it's a special request, private event or simply to say hello — our team is delighted to help.</p>
 

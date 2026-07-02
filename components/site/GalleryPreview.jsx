@@ -16,7 +16,6 @@ export default function GalleryPreview() {
               <span className="h-px w-8 bg-brand-gold/60"/>
               <span className="uppercase tracking-[0.35em] text-[10px] font-semibold text-brand-gold">Gallery</span>
             </div>
-            <div className="font-chinese text-brand-red-light/40 text-4xl mb-2">画廊</div>
             <h2 className="font-display text-4xl md:text-6xl text-brand-cream max-w-xl leading-[1.05]">Moments made <em className="text-gold-gradient not-italic">unforgettable</em></h2>
           </div>
           <Link href="/gallery" className="btn-ghost-gold self-start">View Full Gallery <ArrowUpRight className="w-3.5 h-3.5"/></Link>

@@ -10,7 +10,6 @@ export default function ReviewsPage() {
         <img src={IMG.duck2} alt="" className="absolute inset-0 w-full h-full object-cover"/>
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-brand-ink"/>
         <div className="relative container mx-auto px-6 pt-24 text-center">
-          <div className="font-chinese text-brand-red-light text-5xl md:text-7xl opacity-40 mb-4">评价</div>
           <h1 className="font-display text-5xl md:text-8xl leading-none">Guest <em className="text-gold-gradient not-italic">Reviews</em></h1>
           <p className="font-serif italic text-lg text-brand-cream/70 mt-6 max-w-2xl mx-auto">A few kind words from those who have shared our table.</p>
         </div>

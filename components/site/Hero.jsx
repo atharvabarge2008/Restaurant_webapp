@@ -29,12 +29,6 @@ export default function Hero() {
       <Steam className="absolute right-[22%] top-[45%] w-16 h-40" delay={1.4}/>
       <Steam className="absolute right-[36%] top-[30%] w-20 h-40 hidden md:block" delay={0.7}/>
 
-      {/* Ornamental char */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.7 }} animate={{ opacity: 0.09, scale: 1 }} transition={{ duration: 2, ease: 'easeOut', delay: 1 }}
-        className="absolute -right-6 top-[8%] font-chinese text-brand-red-light text-[22rem] leading-none select-none pointer-events-none hidden md:block"
-      >王</motion.div>
-
       {/* Content */}
       <motion.div style={{ opacity }} className="relative z-10 h-full container mx-auto px-6 flex flex-col justify-center">
         <motion.div

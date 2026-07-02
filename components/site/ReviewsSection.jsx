@@ -11,8 +11,6 @@ export default function ReviewsSection() {
 
   return (
     <section id="reviews" className="relative py-24 md:py-32 bg-black overflow-hidden">
-      <div className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 font-chinese text-brand-red/5 text-[40rem] leading-none pointer-events-none select-none">爱</div>
-
       <div className="relative">
         <div className="container mx-auto px-6">
           <SectionHeading eyebrow="Guest Voices" chinese="प्रेमाने लिहिले" title="Praised by Satara, adored by locals" subtitle="Real Google reviews from real Shindeshahi fans." />

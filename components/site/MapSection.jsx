@@ -20,7 +20,6 @@ export default function MapSection() {
               <span className="h-px w-8 bg-brand-gold/60"/>
               <span className="uppercase tracking-[0.35em] text-[10px] font-semibold text-brand-gold">Find Us</span>
             </div>
-            <div className="font-chinese text-brand-red-light/40 text-4xl mb-2">莅临光顾</div>
             <h2 className="font-display text-4xl md:text-5xl leading-tight mb-6">Visit us in Guruwar Peth, Satara</h2>
             <p className="font-serif italic text-lg text-brand-cream/70 leading-relaxed mb-8">
               Located in the heart of Satara, Shindeshahi has been serving authentic Indo-Chinese cuisine to locals and visitors for years.
