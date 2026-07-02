@@ -1,6 +1,8 @@
 'use client'
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import Image from 'next/image'
+import { IMG } from '@/lib/site-data'
 
 export default function LoadingScreen() {
   const [show, setShow] = useState(true)
@@ -50,19 +52,21 @@ export default function LoadingScreen() {
           <div className="absolute inset-0 flex flex-col items-center justify-center px-6">
             {/* Logo */}
             <motion.div
-              initial={{ scale: 0.4, opacity: 0, rotate: -60 }}
+              initial={{ scale: 0.4, opacity: 0, rotate: -15 }}
               animate={{ scale: 1, opacity: 1, rotate: 0 }}
               transition={{ duration: 0.9, ease: [0.2, 0.7, 0.2, 1] }}
               className="relative mb-10"
             >
-              <div className="relative w-28 h-28 rounded-full bg-red-gradient flex items-center justify-center shadow-red">
+              <div className="relative w-32 h-32 rounded-full overflow-hidden shadow-red ring-4 ring-brand-gold/40">
+                <Image 
+                  src={IMG.logo} 
+                  alt="Shindeshahi Chinese Restro Logo" 
+                  fill
+                  className="object-cover"
+                  priority
+                />
                 <motion.span
-                  animate={{ scale: [1, 1.08, 1] }} transition={{ duration: 1.8, repeat: Infinity }}
-                  className="font-chinese text-brand-gold text-6xl font-black"
-                >王</motion.span>
-                <span className="absolute inset-0 rounded-full ring-2 ring-brand-gold/40"/>
-                <motion.span
-                  animate={{ scale: [1, 1.35, 1.35], opacity: [0.6, 0, 0] }}
+                  animate={{ scale: [1, 1.25, 1.25], opacity: [0.6, 0, 0] }}
                   transition={{ duration: 2.4, repeat: Infinity }}
                   className="absolute inset-0 rounded-full ring-2 ring-brand-gold"
                 />

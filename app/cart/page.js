@@ -139,9 +139,14 @@ export default function CartPage() {
                   <span className="font-display text-3xl text-gold-gradient">₹{totals.total}</span>
                 </div>
 
-                <Link href="/checkout" className="btn-gold w-full justify-center !py-4">
-                  <Sparkles className="w-4 h-4"/> Proceed to Checkout
-                </Link>
+                <div className="space-y-3">
+                  <a href={BRAND.order.zomato} target="_blank" rel="noreferrer" className="btn-gold w-full justify-center !py-4">
+                    Order on Zomato
+                  </a>
+                  <a href={BRAND.order.swiggy} target="_blank" rel="noreferrer" className="btn-ghost-gold w-full justify-center !py-4">
+                    Order on Swiggy
+                  </a>
+                </div>
 
                 <div className="flex items-center gap-2 text-xs text-brand-cream/40 justify-center">
                   <ChefHat className="w-3.5 h-3.5"/> Fresh, wok-fired the moment you order.

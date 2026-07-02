@@ -47,7 +47,12 @@ export const metadata = {
     googleBot: { index: true, follow: true, 'max-video-preview': -1, 'max-image-preview': 'large', 'max-snippet': -1 }
   },
   icons: {
-    icon: [{ url: 'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'%3E%3Ccircle cx=\'50\' cy=\'50\' r=\'48\' fill=\'%23B71C1C\'/%3E%3Ctext x=\'50\' y=\'70\' font-size=\'62\' text-anchor=\'middle\' font-family=\'serif\' font-weight=\'900\' fill=\'%23FFD700\'%3E王%3C/text%3E%3C/svg%3E' }]
+    icon: [
+      { url: '/gallery/shindeshai_logo.jpg', sizes: 'any', type: 'image/jpeg' }
+    ],
+    apple: [
+      { url: '/gallery/shindeshai_logo.jpg' }
+    ]
   },
   verification: {}
 }
