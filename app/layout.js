@@ -4,6 +4,7 @@ import { Providers } from './providers'
 import Navbar from '@/components/site/Navbar'
 import Footer from '@/components/site/Footer'
 import SmoothScroll from '@/components/site/SmoothScroll'
+import FloatingButtons from '@/components/site/FloatingButtons'
 import { Toaster } from 'sonner'
 
 const display = Playfair_Display({ subsets: ['latin'], weight: ['500','600','700','800','900'], variable: '--font-display', display: 'swap' })
@@ -36,6 +37,7 @@ export default function RootLayout({ children }) {
           <Navbar />
           <main className="relative">{children}</main>
           <Footer />
+          <FloatingButtons />
           <Toaster theme="dark" position="top-center" toastOptions={{ style: { background: '#111', color: '#FFD700', border: '1px solid rgba(255,215,0,0.3)' } }} />
         </Providers>
       </body>

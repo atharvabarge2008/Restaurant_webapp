@@ -3,13 +3,15 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Phone } from 'lucide-react'
+import { Menu, X, Phone, ShoppingBag } from 'lucide-react'
 import { NAV_LINKS, BRAND } from '@/lib/site-data'
+import { useCart } from '@/lib/cart-context'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
   const pathname = usePathname()
+  const { totals } = useCart()
 
   useEffect(() => {
     const on = () => setScrolled(window.scrollY > 24)
@@ -57,10 +59,21 @@ export default function Navbar() {
             </nav>
 
             <div className="flex items-center gap-3">
-              <a href={`tel:${BRAND.phone.replace(/[^+\d]/g,'')}`} className="hidden md:inline-flex items-center gap-2 text-xs text-brand-cream/80 hover:text-brand-gold transition">
+              <a href={`tel:${BRAND.phone.replace(/[^+\d]/g,'')}`} className="hidden xl:inline-flex items-center gap-2 text-xs text-brand-cream/80 hover:text-brand-gold transition">
                 <Phone className="w-3.5 h-3.5"/> {BRAND.phone}
               </a>
-              <a href={BRAND.order.zomato} target="_blank" rel="noreferrer" className="hidden md:inline-flex btn-gold !py-2.5 !px-5 !text-[11px]">Order Online</a>
+              <Link href="/cart" className="relative w-10 h-10 rounded-full glass hover:gold-border flex items-center justify-center text-brand-gold transition group" aria-label="Cart">
+                <ShoppingBag className="w-4 h-4"/>
+                <AnimatePresence>
+                  {totals.itemCount > 0 && (
+                    <motion.span
+                      initial={{ scale: 0 }} animate={{ scale: 1 }} exit={{ scale: 0 }}
+                      className="absolute -top-1 -right-1 min-w-[20px] h-5 rounded-full bg-brand-red text-brand-gold text-[10px] font-bold flex items-center justify-center px-1.5 ring-2 ring-brand-ink"
+                    >{totals.itemCount}</motion.span>
+                  )}
+                </AnimatePresence>
+              </Link>
+              <Link href="/menu" className="hidden md:inline-flex btn-gold !py-2.5 !px-5 !text-[11px]">Order Online</Link>
               <button onClick={() => setOpen(v => !v)} className="lg:hidden text-brand-gold p-2" aria-label="Toggle menu">
                 {open ? <X className="w-6 h-6"/> : <Menu className="w-6 h-6"/>}
               </button>
