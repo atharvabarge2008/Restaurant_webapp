@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { Instagram, Facebook, MapPin, Phone, Clock, Utensils } from 'lucide-react'
 import { BRAND, NAV_LINKS, IMG } from '@/lib/site-data'
 
-const MARQUEE_WORDS = ['Chicken Dinosaur', 'Shinde Shahi Special', 'Manchow Soup', 'Chicken Lollipop', 'Hakka Noodles', 'Schezwan Rice', 'Momos', 'Manchurian', 'Peri Peri', 'Triple Rice']
+const MARQUEE_WORDS = ['Chicken Dinosaur', 'Shindeshahi Special', 'Manchow Soup', 'Chicken Lollipop', 'Hakka Noodles', 'Schezwan Rice', 'Momos', 'Manchurian', 'Peri Peri', 'Triple Rice']
 
 export default function Footer() {
   return (
@@ -27,7 +27,7 @@ export default function Footer() {
           <div className="absolute -top-24 -right-16 w-72 h-72 rounded-full bg-brand-gold/10 blur-3xl"/>
           <div className="relative">
             <div className="text-brand-gold text-xs tracking-[0.4em] uppercase mb-3">Hungry?</div>
-            <h3 className="font-display font-bold text-3xl md:text-5xl leading-[1.05]">Get Shinde Shahi delivered <span className="text-gold-gradient italic">hot to your door.</span></h3>
+            <h3 className="font-display font-bold text-3xl md:text-5xl leading-[1.05]">Get Shindeshahi delivered <span className="text-gold-gradient italic">hot to your door.</span></h3>
           </div>
           <div className="relative flex flex-wrap gap-3 md:justify-end">
             <a href={BRAND.order.zomato} target="_blank" rel="noreferrer" data-cursor="hover" className="btn-gold">Order on Zomato</a>
@@ -41,7 +41,7 @@ export default function Footer() {
               <div className="relative w-12 h-12 rounded-full overflow-hidden shadow-red ring-1 ring-brand-gold/40">
                 <Image 
                   src={IMG.logo} 
-                  alt="Shinde Shahi Chinese Restro Logo" 
+                  alt="Shindeshahi Chinese Restro Logo" 
                   fill
                   className="object-cover"
                 />
@@ -97,7 +97,7 @@ export default function Footer() {
         <div className="relative mb-10 py-12">
           <div className="text-center">
             <div className="font-display font-bold text-4xl md:text-6xl text-brand-cream/20 tracking-wide mb-2">
-              SHINDE SHAHI CHINESE RESTRO
+              SHINDESHAHI CHINESE RESTRO
             </div>
             <div className="text-brand-gold/40 text-sm tracking-widest uppercase">
               Satara

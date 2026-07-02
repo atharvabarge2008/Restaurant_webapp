@@ -37,7 +37,7 @@ export default function Navbar() {
               <div className="relative w-10 h-10 md:w-11 md:h-11 rounded-full overflow-hidden shadow-red ring-1 ring-brand-gold/40 group-hover:ring-brand-gold transition">
                 <Image 
                   src={IMG.logo} 
-                  alt="Shinde Shahi Chinese Restro Logo" 
+                  alt="Shindeshahi Chinese Restro Logo" 
                   fill
                   className="object-cover"
                   priority
