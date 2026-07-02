@@ -52,7 +52,7 @@ async function handle(request, { params }) {
   const method = request.method
 
   try {
-    if (!rawPath) return NextResponse.json({ ok: true, service: 'ShindeShahi API', time: new Date().toISOString() }, { headers: corsHeaders })
+    if (!rawPath) return NextResponse.json({ ok: true, service: 'Shindesh API', time: new Date().toISOString() }, { headers: corsHeaders })
 
     // ------ RESERVATIONS ------
     if (parts[0] === 'reservations') {

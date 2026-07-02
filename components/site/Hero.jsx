@@ -4,7 +4,7 @@ import { useRef } from 'react'
 import Link from 'next/link'
 import { Star, ChevronDown, Phone, ArrowRight } from 'lucide-react'
 import { IMG, BRAND } from '@/lib/site-data'
-import { Magnetic, Steam, FloatingIngredients, AnimatedCounter } from '@/components/premium/PremiumFX'
+import { Magnetic, Steam, AnimatedCounter } from '@/components/premium/PremiumFX'
 
 export default function Hero() {
   const ref = useRef(null)
@@ -22,8 +22,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-transparent to-black/40"/>
       </motion.div>
 
-      {/* Floating ingredients */}
-      <FloatingIngredients count={9}/>
+      {/* Floating ingredients removed for cleaner UX */}
 
       {/* Steam plumes */}
       <Steam className="absolute right-[8%] top-[35%] w-24 h-48" delay={0}/>
@@ -75,7 +74,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.85 }}
           className="mt-8 max-w-xl text-brand-cream/75 font-serif text-xl md:text-2xl leading-relaxed italic"
         >
-          Satara’s most-loved Indo-Chinese kitchen. Home of the legendary Chicken Dinosaur Rice, Manchow Soup and our house-secret ShindeShahi Special.
+          Satara’s most-loved Indo-Chinese kitchen. Home of the legendary Chicken Dinosaur Rice, Manchow Soup and our house-secret Shindesh Special.
         </motion.p>
 
         <motion.div

@@ -33,7 +33,7 @@ export default function OrderConfirmationPage() {
   )
 
   const isDelivery = order.mode === 'delivery'
-  const shareText = `Just ordered from ShindeShahi Chinese Resto! Order #${order.shortId} — ${BRAND.order.zomato}`
+  const shareText = `Just ordered from Shindesh Chinese Resto! Order #${order.shortId} — ${BRAND.order.zomato}`
 
   return (
     <div className="min-h-screen pt-24 md:pt-28 pb-24 bg-brand-ink">

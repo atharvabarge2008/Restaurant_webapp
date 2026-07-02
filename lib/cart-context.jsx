@@ -2,33 +2,49 @@
 import { createContext, useContext, useEffect, useMemo, useState } from 'react'
 
 const CartCtx = createContext(null)
-const LS_KEY = 'shindeshahi_cart_v1'
+const LS_KEY = 'shindesh_cart_v1'
+
+// Synchronous lazy initializer — reads localStorage on first render (client only) so cart never flashes empty
+function loadInitial() {
+  if (typeof window === 'undefined') return { items: [], promo: null, mode: 'delivery' }
+  try {
+    const raw = window.localStorage.getItem(LS_KEY)
+    if (raw) {
+      const d = JSON.parse(raw)
+      return { items: Array.isArray(d.items) ? d.items : [], promo: d.promo || null, mode: d.mode || 'delivery' }
+    }
+  } catch(e) {}
+  return { items: [], promo: null, mode: 'delivery' }
+}
 
 export function CartProvider({ children }) {
-  const [items, setItems] = useState([])
-  const [promo, setPromo] = useState(null) // { code, type: 'percent'|'flat'|'freedel', value, label }
-  const [mode, setMode] = useState('delivery') // 'delivery' | 'pickup'
-  const [ready, setReady] = useState(false)
+  const initial = loadInitial()
+  const [items, setItems] = useState(initial.items)
+  const [promo, setPromo] = useState(initial.promo)
+  const [mode, setMode] = useState(initial.mode)
+  const [ready, setReady] = useState(true)
 
-  // Load from localStorage
+  // Persist on every change
   useEffect(() => {
     try {
-      const raw = localStorage.getItem(LS_KEY)
-      if (raw) {
-        const data = JSON.parse(raw)
-        setItems(data.items || [])
-        setPromo(data.promo || null)
-        setMode(data.mode || 'delivery')
-      }
+      window.localStorage.setItem(LS_KEY, JSON.stringify({ items, promo, mode }))
     } catch(e) {}
-    setReady(true)
-  }, [])
+  }, [items, promo, mode])
 
-  // Persist
+  // Sync across tabs
   useEffect(() => {
-    if (!ready) return
-    localStorage.setItem(LS_KEY, JSON.stringify({ items, promo, mode }))
-  }, [items, promo, mode, ready])
+    const onStorage = (e) => {
+      if (e.key !== LS_KEY || !e.newValue) return
+      try {
+        const d = JSON.parse(e.newValue)
+        setItems(Array.isArray(d.items) ? d.items : [])
+        setPromo(d.promo || null)
+        setMode(d.mode || 'delivery')
+      } catch(err) {}
+    }
+    window.addEventListener('storage', onStorage)
+    return () => window.removeEventListener('storage', onStorage)
+  }, [])
 
   const addItem = (dish, portion = 'full') => {
     const price = portion === 'half' && dish.halfPrice ? dish.halfPrice : dish.price

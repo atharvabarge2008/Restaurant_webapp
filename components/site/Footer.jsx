@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { Instagram, Facebook, MapPin, Phone, Mail, Clock, Utensils } from 'lucide-react'
 import { BRAND, NAV_LINKS } from '@/lib/site-data'
 
-const MARQUEE_WORDS = ['Chicken Dinosaur', 'ShindeShahi Special', 'Manchow Soup', 'Chicken Lollipop', 'Hakka Noodles', 'Schezwan Rice', 'Momos', 'Manchurian', 'Peri Peri', 'Triple Rice']
+const MARQUEE_WORDS = ['Chicken Dinosaur', 'Shindesh Special', 'Manchow Soup', 'Chicken Lollipop', 'Hakka Noodles', 'Schezwan Rice', 'Momos', 'Manchurian', 'Peri Peri', 'Triple Rice']
 
 export default function Footer() {
   return (
@@ -26,7 +26,7 @@ export default function Footer() {
           <div className="absolute -top-24 -right-16 w-72 h-72 rounded-full bg-brand-gold/10 blur-3xl"/>
           <div className="relative">
             <div className="text-brand-gold text-xs tracking-[0.4em] uppercase mb-3">Hungry?</div>
-            <h3 className="font-display font-bold text-3xl md:text-5xl leading-[1.05]">Get ShindeShahi delivered <span className="text-gold-gradient italic">hot to your door.</span></h3>
+            <h3 className="font-display font-bold text-3xl md:text-5xl leading-[1.05]">Get Shindesh delivered <span className="text-gold-gradient italic">hot to your door.</span></h3>
           </div>
           <div className="relative flex flex-wrap gap-3 md:justify-end">
             <a href={BRAND.order.zomato} target="_blank" rel="noreferrer" data-cursor="hover" className="btn-gold">Order on Zomato</a>
@@ -46,7 +46,7 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-brand-cream/60 leading-relaxed text-sm max-w-sm mb-4" style={{ fontFamily: 'var(--font-chinese)' }}>{BRAND.marathi}</p>
-            <p className="text-brand-cream/60 leading-relaxed text-sm max-w-sm mb-6">Satara’s most-loved Indo-Chinese kitchen. Home of Chicken Dinosaur Rice, Manchow Soup and the legendary ShindeShahi Special.</p>
+            <p className="text-brand-cream/60 leading-relaxed text-sm max-w-sm mb-6">Satara’s most-loved Indo-Chinese kitchen. Home of Chicken Dinosaur Rice, Manchow Soup and the legendary Shindesh Special.</p>
             <div className="flex gap-3">
               <a href={BRAND.socials.instagram} target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full glass hover:bg-brand-gold hover:text-brand-ink transition flex items-center justify-center text-brand-gold" aria-label="Instagram"><Instagram className="w-4 h-4"/></a>
               <a href={BRAND.socials.facebook} target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full glass hover:bg-brand-gold hover:text-brand-ink transition flex items-center justify-center text-brand-gold" aria-label="Facebook"><Facebook className="w-4 h-4"/></a>

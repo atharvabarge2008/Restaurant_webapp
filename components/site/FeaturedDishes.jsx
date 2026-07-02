@@ -14,7 +14,7 @@ export default function FeaturedDishes() {
       <div className="absolute -bottom-40 -right-40 w-[500px] h-[500px] rounded-full bg-brand-gold/5 blur-[120px]"/>
 
       <div className="relative container mx-auto px-6">
-        <SectionHeading eyebrow="Featured Menu" chinese="招牌菜" title="Bestsellers that made ShindeShahi famous" subtitle="The dishes locals travel across Satara for — handcrafted with our house-secret masala." />
+        <SectionHeading eyebrow="Featured Menu" chinese="招牌菜" title="Bestsellers that made Shindesh famous" subtitle="The dishes locals travel across Satara for — handcrafted with our house-secret masala." />
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6" style={{ perspective: 1400 }}>
           {FEATURED_DISHES.map((d, i) => (

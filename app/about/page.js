@@ -4,10 +4,10 @@ import { IMG, BRAND } from '@/lib/site-data'
 import SectionHeading from '@/components/site/SectionHeading'
 
 const timeline = [
-  { year: '2015', title: 'A Corner in Guruwar Peth', marathi: 'सुरुवात', text: 'ShindeShahi opens its shutters in a small corner shop opposite Y.C. College. One wok, one dream: give Satara the freshest, tastiest Indo-Chinese food in the city.' },
+  { year: '2015', title: 'A Corner in Guruwar Peth', marathi: 'सुरुवात', text: 'Shindesh opens its shutters in a small corner shop opposite Y.C. College. One wok, one dream: give Satara the freshest, tastiest Indo-Chinese food in the city.' },
   { year: '2017', title: 'The Dinosaur Is Born', marathi: 'डायनोसॉर', text: 'A regular customer asks for “something extra spicy, extra masaledar.” Our house Dinosaur Rice is created that evening. Word spreads across Satara within weeks.' },
   { year: '2020', title: 'Zomato & Swiggy Go Live', marathi: 'घरपोहोच', text: 'Home delivery launches on both platforms. Within months, we hit 4.6★ on Zomato and cross 1,500 ratings on Swiggy.' },
-  { year: '2023', title: '855+ Google Reviews', marathi: 'विश्वास', text: 'A 4.5★ average and hundreds of loving reviews later, ShindeShahi is officially Satara’s go-to Indo-Chinese destination.' },
+  { year: '2023', title: '855+ Google Reviews', marathi: 'विश्वास', text: 'A 4.5★ average and hundreds of loving reviews later, Shindesh is officially Satara’s go-to Indo-Chinese destination.' },
   { year: 'Today', title: 'Still Wok-Fired to Order', marathi: 'आजही तेच', text: 'Same recipes. Same hands. Same fire. Come dine with us in Guruwar Peth, or tap Zomato/Swiggy and we’ll bring the wok to you.' }
 ]
 
@@ -31,10 +31,10 @@ export default function AboutPage() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="relative">
               <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-red">
-                <img src={IMG.chickenCrispy} alt="ShindeShahi kitchen" className="w-full h-full object-cover"/>
+                <img src={IMG.chickenCrispy} alt="Shindesh kitchen" className="w-full h-full object-cover"/>
               </div>
               <div className="absolute -bottom-8 -right-6 md:-right-10 glass gold-border rounded-2xl p-6 max-w-xs shadow-gold">
-                <div className="text-brand-gold text-2xl mb-1" style={{ fontFamily: 'var(--font-chinese)' }}>शिंदेशाही</div>
+                <div className="text-brand-gold text-2xl mb-1" style={{ fontFamily: 'var(--font-chinese)' }}>शिंदेश</div>
                 <div className="font-display text-2xl text-brand-cream">The Wok, The Fire</div>
                 <div className="text-xs text-brand-cream/60 uppercase tracking-[0.25em] mt-1">Guruwar Peth, Satara</div>
               </div>
@@ -47,7 +47,7 @@ export default function AboutPage() {
               <div className="text-brand-red-light/60 text-3xl mb-3" style={{ fontFamily: 'var(--font-chinese)' }}>चव जो मन जिंके</div>
               <h2 className="font-display text-4xl md:text-6xl leading-[1.05] mb-6">Fresh food. Big flavour. <em className="text-gold-gradient not-italic">Fair prices.</em></h2>
               <p className="font-serif italic text-lg text-brand-cream/70 leading-relaxed mb-6">We don’t chase fine-dining fanciness. We chase flavour. Every plate is wok-fired to order using our house-secret masala — the same one we’ve been mixing since 2015.</p>
-              <p className="text-brand-cream/60 leading-relaxed">ShindeShahi is a neighbourhood joint at heart — warm, honest, generously portioned. Whether it’s the college kids after class or families on a Sunday, we cook for the people of Satara like they’re family.</p>
+              <p className="text-brand-cream/60 leading-relaxed">Shindesh is a neighbourhood joint at heart — warm, honest, generously portioned. Whether it’s the college kids after class or families on a Sunday, we cook for the people of Satara like they’re family.</p>
 
               <div className="grid grid-cols-3 gap-6 mt-10">
                 {[{v:'4.5★', l:'Google rating'},{v:'855+', l:'Reviews'},{v:'50+', l:'Dishes'}].map(s => (

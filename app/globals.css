@@ -46,8 +46,8 @@
     text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
   }
-  html.has-cursor, html.has-cursor * { cursor: none !important; }
-  html.has-cursor input, html.has-cursor textarea, html.has-cursor select { cursor: text !important; }
+  html.has-cursor, html.has-cursor * { cursor: auto; }
+  html.has-cursor input, html.has-cursor textarea, html.has-cursor select { cursor: text; }
   body {
     @apply bg-brand-ink text-brand-cream;
     font-family: var(--font-sans);
